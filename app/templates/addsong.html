@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="{% static 'css/form.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+   <!-- Container for the registration form -->
+  <div class="container">
+    <!-- Title of the form -->
+    <div class="title">Add Song</div>
+    <hr>
+    <div class="content">
+      <!-- Registration form -->
+      <form action="#">
+        <div class="user-details">
+          <!-- Input box for full name -->
+          <div class="input-box">
+            <span class="details">Song Name</span>
+            <input type="text" placeholder="Enter your name" required>
+          </div>
+          <!-- Input box for username -->
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="file" placeholder="Enter your username" required>
+          </div>
+        </div>
+        <!-- Button container -->
+        <div class="button-container">
+          <div class="button">
+            <!-- Submit button -->
+            <input type="submit" value="ADD">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
