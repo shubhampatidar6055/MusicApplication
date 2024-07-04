@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Registration Form</title>
+  <title>Add Song</title>
   <link rel="stylesheet" href="{% static 'css/form.css' %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -15,17 +15,18 @@
     <hr>
     <div class="content">
       <!-- Registration form -->
-      <form action="#">
+      <form action="/song/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="user-details">
           <!-- Input box for full name -->
           <div class="input-box">
             <span class="details">Song Name</span>
-            <input type="text" placeholder="Enter your name" required>
+            <input type="text" placeholder="Enter Song Name" name="song_name" required>
           </div>
           <!-- Input box for username -->
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="file" placeholder="Enter your username" required>
+            <input type="file" placeholder="Choose Song" name="song" required>
           </div>
         </div>
         <!-- Button container -->

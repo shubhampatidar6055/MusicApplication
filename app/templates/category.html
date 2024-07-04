@@ -42,8 +42,7 @@
 			<img src="{% static 'img/logo.png' %}" alt="">
 		</a>
 		<ul class="main-menu">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="#">Add Songs</a></li>
+			<li><a href="/addsong/">Add Songs</a></li>
 		</ul>
 	</header>
 	<!-- Header section end -->
@@ -62,13 +61,15 @@
 	<section class="songs-section">
 		<div class="container">
 			<!-- song -->
+			{% for i in song_obj %}
 			<div class="song-item">
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="song-info-box">
-							<img src="{% static 'img/songs/1.jpg' %}" alt="">
+							{% comment %} <img src="{% static 'img/songs/1.jpg' %}" alt=""> {% endcomment %}
 							<div class="song-info">
-								<h4>Jennifer Brown</h4>
+								
+								<h4>{{i.song_name}}</h4>
 								<p>One Night in Ibiza</p>
 							</div>
 						</div>
@@ -76,7 +77,9 @@
 					<div class="col-lg-6">
 						<div class="single_player_container">
 							<div class="single_player">
-								<div class="jp-jplayer jplayer" data-ancestor=".jp_container_1" data-url="music-files/1.mp3"></div>
+								<div class="jp-jplayer jplayer" data-ancestor=".jp_container_1" data-url="{{i.song.url}}">
+								
+								</div>
 								<div class="jp-audio jp_container_1" role="application" aria-label="media player">
 									<div class="jp-gui jp-interface">
 
@@ -109,12 +112,13 @@
 					</div>
 					<div class="col-lg-2">
 						<div class="songs-links">
-							<a href=""><img src="{% static 'img/icons/p-1.png' %}" alt=""></a>
-							<a href=""><img src="{% static 'img/icons/p-2.png' %}" alt=""></a>
-							<a href=""><img src="{% static 'img/icons/p-3.png' %}" alt=""></a>
+							<a href="{% url 'download_song' i.id %}"><img src="{% static 'img/icons/p-2.png' %}" alt="" title="Download Song"></a>
+							<a href="{% url 'update_song' i.id %}"><img src="{% static 'img/icons/icons8-update-16.png' %}" style="height:21px; width:18px;" alt="" title="Update Song"></a>
+							<a href="{% url 'delete_song' i.id %}"><img src="{% static 'img/icons/icons8-delete-button-16.png' %}" style="height:21px; width:18px;" alt="" title="Delete Song"></a>
 						</div>
 					</div>
 				</div>
+			{% endfor %}
 			</div>
 			<!-- song -->
 						<div class="jp-jplayer jplayer" data-ancestor=".jp_container_8" data-url="music-files/8.mp3"></div>
