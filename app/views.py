@@ -41,6 +41,6 @@ def update_song_data(request):
 
 def download_song(request,pk):
     download_obj = Song.objects.get(id=pk)
-    response = HttpResponse(song, content_type='application/force-download')
-    response['Content-Disposition'] = f'attachment; filename="{"song"}'
+    response = HttpResponse(song, content_type='audio/mpeg')
+    response['Content-Disposition'] = f'attachment; filename="{"song"}.mp3"'
     return response
